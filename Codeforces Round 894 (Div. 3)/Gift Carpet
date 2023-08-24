@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        int n, m;
+        cin>>n>>m;
+
+        int ct = 0;
+
+        vector<string> ch;
+
+        for(int i=0; i<n; i++)
+        {
+            string s;
+            cin>>s;
+            ch.push_back(s);
+        }
+
+        for(int j=0; j<m; j++)
+        {
+            for(int i = 0; i<n; i++)
+            {
+                if( (ch[i][j] == 'v') && (ct==0) )
+                {
+                    ct++;
+                    break;
+                }
+
+                else if( (ch[i][j] == 'i') && (ct==1))
+                {
+                    ct++;
+                    break;
+                }
+
+                else if( (ch[i][j] == 'k') && (ct == 2) )
+                {
+                    ct++;
+                    break;
+                }
+                else if( (ch[i][j] == 'a') && (ct==3) )
+                {
+                    ct++;
+                    break;
+                }
+            }
+            if(ct == 4)
+                break;
+        }
+        if(ct == 4)
+            cout<<"YES"<<endl;
+        else
+            cout<<"NO"<<endl;
+    }
+
+    return 0;
+}
